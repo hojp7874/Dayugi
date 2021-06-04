@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73570312-3a1b-4b04-9e0b-133e9e2a318a" name="Default Changelist" comment="BE-jwt : application.properties 수정" />
+    <list default="true" id="a5280d81-ead7-46e3-ad39-880a0f621421" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../FE/Dayugi/src/screens/GalleryPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../FE/Dayugi/src/screens/GalleryPage.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

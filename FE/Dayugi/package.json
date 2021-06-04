@@ -38,6 +38,7 @@
     "react-native-elements": "^3.4.1",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-grid-image-viewer": "^1.0.10",
+    "react-native-image-gallery": "^2.1.5",
     "react-native-month-picker": "^1.0.1",
     "react-native-pathjs-charts": "^0.0.34",
     "react-native-plotly": "^4.0.0",

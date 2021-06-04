@@ -80,7 +80,6 @@ class GalleryPage extends React.Component {
           this.state.imageList.length != 0 &&
           <Text style={styles.explore_text}>추억을 모아봤습니다</Text>
         }
-        
         {Images}
       </View>
     );

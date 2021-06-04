@@ -1,0 +1,52 @@
+{
+  "groups": [
+    {
+      "name": "notification.mattermost",
+      "type": "com.ssafy.dayugi.model.entity.MattermostProperties",
+      "sourceType": "com.ssafy.dayugi.model.entity.MattermostProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "notification.mattermost.author-icon",
+      "type": "java.lang.String",
+      "sourceType": "com.ssafy.dayugi.model.entity.MattermostProperties"
+    },
+    {
+      "name": "notification.mattermost.author-name",
+      "type": "java.lang.String",
+      "sourceType": "com.ssafy.dayugi.model.entity.MattermostProperties"
+    },
+    {
+      "name": "notification.mattermost.channel",
+      "type": "java.lang.String",
+      "sourceType": "com.ssafy.dayugi.model.entity.MattermostProperties"
+    },
+    {
+      "name": "notification.mattermost.color",
+      "type": "java.lang.String",
+      "sourceType": "com.ssafy.dayugi.model.entity.MattermostProperties"
+    },
+    {
+      "name": "notification.mattermost.footer",
+      "type": "java.lang.String",
+      "sourceType": "com.ssafy.dayugi.model.entity.MattermostProperties"
+    },
+    {
+      "name": "notification.mattermost.pretext",
+      "type": "java.lang.String",
+      "sourceType": "com.ssafy.dayugi.model.entity.MattermostProperties"
+    },
+    {
+      "name": "notification.mattermost.text",
+      "type": "java.lang.String",
+      "sourceType": "com.ssafy.dayugi.model.entity.MattermostProperties"
+    },
+    {
+      "name": "notification.mattermost.title",
+      "type": "java.lang.String",
+      "sourceType": "com.ssafy.dayugi.model.entity.MattermostProperties"
+    }
+  ],
+  "hints": []
+}
