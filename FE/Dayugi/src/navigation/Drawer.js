@@ -2,12 +2,24 @@ import React from 'react';
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import DrawerContent from '../components/DrawerContent';
 
-import { AnalysisPage, DiaryArchivePage, DiaryCalendarPage, GalleryPage, GrowthDiaryPage, SettingPage, TutorialPage, LoginPage, SignUpPage, DiaryDetailPage, DiaryWritePage, UserInfoPage } from '../screens/index';
+import { AnalysisPage, DiaryArchivePage, DiaryCalendarPage, GalleryPage, GrowthDiaryPage, SettingPage, TutorialPage, LoginPage, SignUpPage, DiaryDetailPage, DiaryWritePage, UserInfoPage, DiaryUpdatePage } from '../screens/index';
 
 const Routes = {
-  Tutorial : { screen : TutorialPage },
-  Login: { screen: LoginPage },
-  SignUp: { screen: SignUpPage },
+  Tutorial : { screen : TutorialPage,
+    navigationOptions:{
+      drawerLockMode: 'locked-closed'
+    }
+  },
+  Login: { screen: LoginPage,
+    navigationOptions:{
+      drawerLockMode: 'locked-closed'
+    }
+  },
+  SignUp: { screen: SignUpPage,
+    navigationOptions:{
+      drawerLockMode: 'locked-closed'
+    }
+  },
   UserInfo: { screen: UserInfoPage },
   DiaryCalendar : { screen : DiaryCalendarPage },
   DiaryArchive : { screen : DiaryArchivePage },
@@ -17,6 +29,7 @@ const Routes = {
   Setting : { screen : SettingPage },
   DiaryDetail : { screen : DiaryDetailPage },
   DiaryWrite : { screen : DiaryWritePage },
+  DiaryUpdate : { screen : DiaryUpdatePage },
 }
 
 const Drawer = createDrawerNavigator(

@@ -10,6 +10,7 @@ import SignUpPage from './SignUpPage';
 import DiaryDetailPage from './DiaryDetailPage';
 import DiaryWritePage from './DiaryWritePage';
 import UserInfoPage from './UserInfoPage';
+import DiaryUpdatePage from './DiaryUpdatePage';
 
 export { AnalysisPage, DiaryArchivePage, DiaryCalendarPage, 
-    GalleryPage, GrowthDiaryPage, SettingPage, TutorialPage, LoginPage, SignUpPage, DiaryDetailPage, DiaryWritePage, UserInfoPage };
+    GalleryPage, GrowthDiaryPage, SettingPage, TutorialPage, LoginPage, SignUpPage, DiaryDetailPage, DiaryWritePage, UserInfoPage, DiaryUpdatePage };

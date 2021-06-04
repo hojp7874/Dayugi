@@ -1,6 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
-import CustomHeader from '../components/CustomHeader';
+import { Keyboard, StyleSheet, Text, View, TextInput, TouchableOpacity, ToastAndroid, Platform, AlertIOS, BackHandler, TouchableWithoutFeedback } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 class SignUpPage extends React.Component {
@@ -19,8 +18,17 @@ class SignUpPage extends React.Component {
     date: "",
     mode: 'date',
     show: false,
-    navigation: this.props,
+    returnToLogin: false,
   };
+  componentDidMount() {
+    BackHandler.addEventListener('hardwareBackPress', this.handleBackButton);
+  }
+
+  // 이벤트 해제
+  componentWillUnmount() {
+    this.handleReturnToLogin(false);
+    BackHandler.removeEventListener('hardwareBackPress', this.handleBackButton);
+  }
 
   handleEmail = text => {
     this.setState({ email: text });
@@ -53,14 +61,38 @@ class SignUpPage extends React.Component {
     this.setState({ mode: text });
   };
 
-  handleShow = Boolean => {
-    this.setState({ show: Boolean });
+  handleShow = boolean => {
+    this.setState({ show: boolean });
   };
 
   handleDate = Date => {
     this.setState({ date: this.getFormatDate(Date) });
-    console.log(this.state.date);
   };
+  handleReturnToLogin = boolean => {
+    this.setState({ returnToLogin: true })
+  }
+
+  handleBackButton = () => {
+    // 2000(2초) 안에 back 버튼을 한번 더 클릭 할 경우 앱 종료
+    if (!this.state.returnToLogin) {
+      if (Platform.OS === 'android') {
+        ToastAndroid.show('한번 더 누르시면\n로그인 화면으로 돌아갑니다.', ToastAndroid.SHORT)
+      } else {
+        AlertIOS.alert('한번 더 누르시면\n로그인 화면으로 돌아갑니다.');
+      }
+      this.handleReturnToLogin(true);
+      setTimeout(
+        () => {
+          this.handleReturnToLogin(false);
+        },
+        2000    // 2초
+      );
+    } else {
+      clearTimeout(this.timeout);
+      this.props.navigation.navigate('Login');
+    }
+    return true;
+}
 
   validateEmail = (mail) => {
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
@@ -83,8 +115,12 @@ class SignUpPage extends React.Component {
       alert("설정된 생일 날짜를 다시 확인해주세요.");
       return;
     }
+    else if (this.state.date == '' || this.state.date == null) {
+      alert("생일을 설정해주세요!");
+      return;
+    }
     else{
-      let dataObj = { 'email': email, 'password':password, 'nickname':nickname, 'birth':birth, 'uid':0};
+      let dataObj = { 'email': email.trim(), 'password':password, 'nickname':nickname, 'birth':birth, 'uid':0};
       fetch('http://k4a206.p.ssafy.io:8080/dayugi/user/join', {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -133,7 +169,6 @@ class SignUpPage extends React.Component {
       headers: { "Content-Type": "application/json" },
     }).then(response => response.json())
       .then(responseJson => {
-        console.log(responseJson);
         let success = responseJson.success;
         if (success == "success") {
           this.setState({ authCode: responseJson.result });
@@ -186,151 +221,164 @@ class SignUpPage extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <CustomHeader navigation = {this.props.navigation}/>
-        <View>
-          <TextInput
-            style={styles.input}
-            underlineColorAndroid="transparent"
-            placeholder=" Email"
-            placeholderTextColor="#9a73ef"
-            autoCapitalize="none"
-            autoCompleteType="email"
-            keyboardType="email-address"
-            editable={!this.state.authorizedEmail}
-            onChangeText={this.handleEmail}
-          />
-          {
-            this.state.sendEmail &&
-            <TextInput
-              style={styles.input}
-              underlineColorAndroid="transparent"
-              placeholder="인증코드"
-              placeholderTextColor="#9a73ef"
-              autoCapitalize="none"
-              onChangeText={this.handleCode}
-            />
-          }
-          <View style={styles.Btn}>
-            {
-              this.state.sendEmail &&
-              <TouchableOpacity
-                  style={styles.submitButton}
-                  onPress={() => this.emailAuth(this.state.inputCode)}
-                >
-                  <Text style={styles.submitButtonText}>이메일 인증</Text>
-                </TouchableOpacity>
-            }
-            {
-              !this.state.checkedEmail &&
-              <TouchableOpacity
-                style={styles.submitButton}
-                onPress={() => this.checkEmail(this.state.email)}
-              >
-                <Text style={styles.submitButtonText}>중복확인</Text>
-              </TouchableOpacity>
-            }
-            {
-              this.state.notDuplicated && 
-              <TouchableOpacity
-                style={styles.submitButton}
-                onPress={() => this.sendAuthMail(this.state.email)}
-              >
-                <Text style={styles.submitButtonText}>인증메일 전송</Text>
-              </TouchableOpacity>
-            }
-          </View>
-            <TextInput
-              style={styles.input}
-              underlineColorAndroid="transparent"
-              placeholder=" Password"
-              placeholderTextColor="#9a73ef"
-              autoCapitalize="none"
-              secureTextEntry = { true }
-              onChangeText={this.handlePassword}
-            />
-            <TextInput
-              style={styles.input}
-              underlineColorAndroid="transparent"
-              placeholder=" PasswordCheck"
-              placeholderTextColor="#9a73ef"
-              autoCapitalize="none"
-              secureTextEntry={true}
-              onChangeText={this.handleCheckPassword}
-            />
-            <TextInput
-              style={styles.input}
-              underlineColorAndroid="transparent"
-              placeholder=" nickName"
-              placeholderTextColor="#9a73ef"
-              autoCapitalize="none"
-              onChangeText={this.handleNickName}
-            />
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.container}>
+          <Text style={styles.logo}>Dayugi</Text>
           <View>
             <TextInput
               style={styles.input}
               underlineColorAndroid="transparent"
-              value={this.state.date}
-              placeholder="birth"
-              placeholderTextColor="#9a73ef"
+              placeholder=" Email"
               autoCapitalize="none"
-              editable={false}
+              autoCompleteType="email"
+              keyboardType="email-address"
+              editable={!this.state.authorizedEmail}
+              onChangeText={this.handleEmail}
             />
+            {
+              this.state.sendEmail &&
+              <TextInput
+                style={styles.input}
+                underlineColorAndroid="transparent"
+                placeholder="인증코드"
+                autoCapitalize="none"
+                onChangeText={this.handleCode}
+              />
+            }
+            <View style={styles.Btn}>
+              {
+                this.state.sendEmail &&
+                <TouchableOpacity
+                    style={styles.submitButton}
+                    onPress={() => this.emailAuth(this.state.inputCode)}
+                  >
+                    <Text style={styles.submitButtonText}>이메일 인증</Text>
+                  </TouchableOpacity>
+              }
+              {
+                !this.state.checkedEmail &&
+                <TouchableOpacity
+                  style={styles.submitButton}
+                  onPress={() => this.checkEmail(this.state.email)}
+                >
+                  <Text style={styles.submitButtonText}>중복확인</Text>
+                </TouchableOpacity>
+              }
+              {
+                this.state.notDuplicated && 
+                <TouchableOpacity
+                  style={styles.submitButton}
+                  onPress={() => this.sendAuthMail(this.state.email)}
+                >
+                  <Text style={styles.submitButtonText}>인증메일 전송</Text>
+                </TouchableOpacity>
+              }
+            </View>
+              <TextInput
+                style={styles.input}
+                underlineColorAndroid="transparent"
+                placeholder=" Password"
+                autoCapitalize="none"
+                secureTextEntry = { true }
+                onChangeText={this.handlePassword}
+              />
+              <TextInput
+                style={styles.input}
+                underlineColorAndroid="transparent"
+                placeholder=" PasswordCheck"
+                autoCapitalize="none"
+                secureTextEntry={true}
+                onChangeText={this.handleCheckPassword}
+              />
+              <TextInput
+                style={styles.input}
+                underlineColorAndroid="transparent"
+                placeholder=" nickName"
+                autoCapitalize="none"
+                onChangeText={this.handleNickName}
+              />
+            <View>
+              <TextInput
+                style={styles.input}
+                underlineColorAndroid="transparent"
+                value={this.state.date}
+                placeholder="birth"
+                autoCapitalize="none"
+                editable={false}
+              />
+                <TouchableOpacity
+                  style={styles.submitButton}
+                  onPress={() => this.showDatepicker()}
+                >
+                  <Text style={styles.submitButtonText}>생일 설정</Text>
+                </TouchableOpacity>
+              </View>
+              { this.state.show && (
+                <DateTimePicker
+                  testID="dateTimePicker"
+                  value={this.state.rawDate}
+                  mode={this.state.mode}
+                  is24Hour={true}
+                  display="default"
+                  onChange={this.onChange}
+                />
+              )}
+              </View>
+          
+          <View style={styles.Btn}>
+            {
+              this.state.authorizedEmail &&
               <TouchableOpacity
                 style={styles.submitButton}
-                onPress={() => this.showDatepicker()}
+                onPress={() => this.signUp(this.state.email, this.state.password, this.state.nickName, this.state.date, this.state.rawDate)}
               >
-                <Text style={styles.submitButtonText}>생일 설정</Text>
+                <Text style={styles.submitButtonText}>회원가입</Text>
               </TouchableOpacity>
-            </View>
-            { this.state.show && (
-              <DateTimePicker
-                testID="dateTimePicker"
-                value={this.state.rawDate}
-                mode={this.state.mode}
-                is24Hour={true}
-                display="default"
-                onChange={this.onChange}
-              />
-            )}
-            </View>
-        
-        <View style={styles.Btn}>
-          {
-            this.state.authorizedEmail &&
-            <TouchableOpacity
-              style={styles.submitButton}
-              onPress={() => this.signUp(this.state.email, this.state.password, this.state.nickName, this.state.date, this.state.rawDate)}
-            >
-              <Text style={styles.submitButtonText}>회원가입</Text>
-            </TouchableOpacity>
-          }
+            }
+          </View>
         </View>
-        
-      </View>
+      </TouchableWithoutFeedback>
     );
   }
 }
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#FFFAF0',
     width: '100%',
   },
   input: {
-    margin: 15,
+    margin: 10,
+    marginBottom: 10,
+    marginLeft: 70,
+    marginRight: 70,
     height: 40,
-    borderColor: "#7a42f4",
-    borderWidth: 1
+    borderColor: "#E5E5E5",
+    borderWidth: 1,
+    borderRadius: 5,
+  },
+  logo: {
+    textAlign: 'center',
+    color: '#FF7E36',
+    fontWeight: 'bold',
+    fontSize: 30,
+    marginBottom: '10%',
+    marginTop: '15%'
   },
   submitButton: {
-    backgroundColor: "#7a42f4",
+    backgroundColor: "#FF7E36",
     padding: 10,
-    margin: 15,
-    height: 40
+    marginTop: 10,
+    marginLeft: 70,
+    marginRight: 70,
+    height: 40,
+    borderRadius: 5,
   },
   submitButtonText: {
-    color: "white"
+    textAlign: "center",
+    color: "white",
+    fontSize: 14,
+    fontWeight: 'bold'
   }
 });
 

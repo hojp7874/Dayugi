@@ -15,7 +15,6 @@ class GalleryPage extends React.Component {
 
   async componentDidMount() {
     this.state.uid = await AsyncStorage.getItem('uid');
-    console.log(this.state.uid);
     this.state.authorization = await AsyncStorage.getItem('Authorization');
     this.getAllDiary();
   }
@@ -59,7 +58,6 @@ class GalleryPage extends React.Component {
   };
 
   render() {
-    console.log(this.state.imageList);
     let Images = null;
     if (this.state.imageList.length == 0) {
       Images = (
@@ -76,9 +74,12 @@ class GalleryPage extends React.Component {
 
     return (
       <View style={styles.background}>
-        <CustomHeader navigation={this.props.navigation} />
+        <CustomHeader navigation={this.props.navigation}/>
         <Text style={styles.headline_text}>사진</Text>
-        <Text style={styles.explore_text}>추억을 모아봤습니다</Text>
+        {
+          this.state.imageList.length != 0 &&
+          <Text style={styles.explore_text}>추억을 모아봤습니다</Text>
+        }
         {Images}
       </View>
     );
@@ -86,11 +87,6 @@ class GalleryPage extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    width: '100%',
-  },
   stretch: {
     flex: 1,
     width: '30%',
@@ -105,7 +101,7 @@ const styles = StyleSheet.create({
     color: 'black',
     fontSize: 30,
     fontWeight: 'bold',
-    marginTop: 50,
+    marginTop: 16,
     marginLeft: 20,
   },
   explore_text: {
@@ -117,11 +113,11 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   noImage: {
-    marginLeft: '20%',
-    height: '50%',
-    width: '50%',
+    marginLeft: '10%',
+    height: '80%',
+    width: '80%',
     alignItems: 'center',
-
+    resizeMode:'contain'
   },
   noImageText: {
     marginLeft: '40%',
