@@ -1,20 +1,20 @@
 package com.ssafy.dayugi.model.entity;
-
-import lombok.Data;
-import lombok.NonNull;
-
+import lombok.*;
 import javax.persistence.*;
 
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Data
 @Entity
 public class EmotionRate {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="erid")
     private int erid;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "did")
     private Diary diary;
 

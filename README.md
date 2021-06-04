@@ -1,80 +1,86 @@
+# 🌵Dayugi?
 
+**머신러닝을 활용한 다이어리 분석과 감정 분석을 활용한 감성 다이어리 서비스**
 
-# DAYUGI
-
-> 감정분석 다이어리 서비스
->
-> 인공지능을 활용해 감정을 분석하고 코멘트를 달아주는 다이어리 서비스
-
-![image-20210423144834848](README.assets/image-20210423144834848.png)
-
-
-
-![image-20210423144849582](README.assets/image-20210423144849582.png)
-
-팀 소개:
-
-- 박영창
-- 노태훈
-- 홍진표
-- 이소영
-- 우희정
+- 머신러닝을 통해 구현한 모델이 한줄평을 통해서 위로의 한마디를 건내줍니다.
+- 모델을 통해 작성한 다이어리에서 감정을 추출하여 선택한 기간의 감정변화를 그래프로 한눈에 확인할 수 있습니다.
+- 다이어리에 올린 사진을 갤러리를 통해서 한눈에 볼 수 있습니다.
 
 
 
-![image-20210423144854913](README.assets/image-20210423144854913.png)
+# Download and Setup
 
-대한민국 청년들의 안타까운 소식들을 우리가 해결하겠습니다!
+1. 이 저장소를 fork한 후 로컬 장치에 clone 하세요.
 
+   `git clone https://lab.ssafy.com/s04-final/s04p31a206.git`
 
+2. FE
 
-![image-20210423144900532](README.assets/image-20210423144900532.png)
-
-마치 어릴적 담임선생님이 써주시던 코멘트!
-
-
-
-![image-20210423144906219](README.assets/image-20210423144906219.png)
-
-다양한 식물 파트너들과의 교감!
-
-
-
-![image-20210423144910401](README.assets/image-20210423144910401.png)
-
-나의 감정을 그래프로 본다고?? 놀라워!
+   1. `yarn install`
+   2. `npm start`
+   3. CONNECTION LAN → Tunnel
+   4. 접속
+      1. 휴대폰 or 앱 플레이어에 Expo Go 앱 설치
+      2. QR코드 스캔을 통한 접속
 
 
 
-![image-20210423144914694](README.assets/image-20210423144914694.png)
+# 기술 스택
 
-나의 일기에 인공지능이 코멘트를 달아준다고?? 진짜 짱이야!
+| 분류     | 사용 기술 스택                                               |
+| -------- | ------------------------------------------------------------ |
+| FE       | <img src="https://img.shields.io/badge/ReactNative-0.64.4-green?logo=vue.js"> |
+| BE       | <img src="https://img.shields.io/badge/Java-1.8-blue?logo=java"><img src="https://img.shields.io/badge/Python-3.8.5-blue?logo=python"><img src="https://img.shields.io/badge/Flask-1.1.2-blue?logo=flask"><img src="https://img.shields.io/badge/SpringBoot-2.4.3-green?logo=spring"> |
+| ML       | <img src="https://img.shields.io/badge/Pytorch-1.8.1-red?logo=pytorch"><img src="https://img.shields.io/badge/Python-3.8.5-blue?logo=python"> |
+| DevOps   | <img src="https://img.shields.io/badge/Jenkins-lightgrey?logo=jenkins"><img src="https://img.shields.io/badge/Docker-blue?logo=docker"> |
+| Database | <img src="https://img.shields.io/badge/MySQL-v8.0-blue?logo=mysql"> |
+| etc      | <img src="https://img.shields.io/badge/Mattermost-blue?logo=mattermost"><img src="https://img.shields.io/badge/Discord-lightgrey?logo=discord"> |
+
+# About Us
+
+| 이름   | 역할       |
+| ------ | ---------- |
+| 홍진표 | 팀장, ML   |
+| 노태훈 | BE, FE     |
+| 박영창 | FE         |
+| 우희정 | BE, FE     |
+| 이소영 | FE, DevOps |
+
+# 시스템 아키텍쳐
 
 
-
-![image-20210423144919515](README.assets/image-20210423144919515.png)
-
-뷰 네이티브를 활용해 어플리케이션과 웹서비스 모두를 이용할 수 있다고!
-
-
-
-![image-20210423144924014](README.assets/image-20210423144924014.png)
-
-탄탄한 DB!!
-
-
-
-![image-20210423144927936](README.assets/image-20210423144927936.png)
-
-손쉽게 따라할 수 있도록 듀토리얼까지!!
-
-
-
-![image-20210423144934097](README.assets/image-20210423144934097.png)
-
-예쁘고 감성적인 UI/UX
+![](README.assets/system_diagram.png)
 
 
 
-![image-20210423144938152](README.assets/image-20210423144938152.png)
+# ERD
+
+
+![](README.assets/erd.png)
+
+# 시연
+
+### 튜토리얼
+
+![](README.assets/tutorial.gif)
+
+### 다이어리 작성
+
+![](README.assets/diaryedit.gif)
+
+### 다이어리 조회 - Home
+
+![](README.assets/diary_view.gif)
+
+### 다이어리 조회 - 모아보기
+
+![](README.assets/moabogi.gif)
+
+### 마이페이지
+
+![](README.assets/mypage.gif)
+
+### 분석페이지
+
+![](README.assets/analysis.gif)
 

@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="73570312-3a1b-4b04-9e0b-133e9e2a318a" name="Default Changelist" comment="BE-jwt : application.properties 수정" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/../.." value="BE" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="1rYv18CRaE4sjaVUreL68PdZcLD" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/ssafy/dayugi/service" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Rainbow Brackets" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\project03\s04p31a206\BE\Dayugi\src\main\java\com\ssafy\dayugi\service" />
+      <recent name="D:\project03\s04p31a206\BE\Dayugi\src\main\java\com\ssafy\dayugi\jwt" />
+      <recent name="D:\project03\s04p31a206\BE\Dayugi\src\main\java\com\ssafy\dayugi\config" />
+      <recent name="D:\project03\s04p31a206\BE\Dayugi\src\main\java\com\ssafy\dayugi\controller" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.ssafy.dayugi.util" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.ssafy.dayugi.jwt" />
+      <recent name="com.ssafy.dayugi.config" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="DayugiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="Dayugi" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ssafy.dayugi.DayugiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="73570312-3a1b-4b04-9e0b-133e9e2a318a" name="Default Changelist" comment="" />
+      <created>1619165620720</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1619165620720</updated>
+      <workItem from="1619165621838" duration="98000" />
+      <workItem from="1619400551451" duration="31000" />
+      <workItem from="1619400600571" duration="34000" />
+      <workItem from="1619400942846" duration="716000" />
+      <workItem from="1619412343214" duration="75000" />
+      <workItem from="1619412797997" duration="1255000" />
+      <workItem from="1619418360780" duration="3470000" />
+      <workItem from="1619421848074" duration="509000" />
+      <workItem from="1619422384012" duration="274000" />
+      <workItem from="1619422669045" duration="270000" />
+      <workItem from="1619422948971" duration="20000" />
+      <workItem from="1619422980644" duration="34000" />
+      <workItem from="1619423199893" duration="1219000" />
+      <workItem from="1619427613972" duration="2542000" />
+      <workItem from="1619482402652" duration="2257000" />
+      <workItem from="1619497932062" duration="139000" />
+      <workItem from="1619498122290" duration="827000" />
+      <workItem from="1619499167790" duration="9751000" />
+      <workItem from="1619594919385" duration="4192000" />
+      <workItem from="1619616659483" duration="3274000" />
+      <workItem from="1619655391352" duration="8051000" />
+      <workItem from="1619673929290" duration="1768000" />
+      <workItem from="1619675713922" duration="6499000" />
+      <workItem from="1619685847779" duration="563000" />
+      <workItem from="1619717727349" duration="6728000" />
+      <workItem from="1619756056381" duration="5563000" />
+      <workItem from="1619762088521" duration="3773000" />
+      <workItem from="1619766029689" duration="283000" />
+      <workItem from="1619766319775" duration="5359000" />
+      <workItem from="1619803107036" duration="3528000" />
+      <workItem from="1619830863814" duration="8963000" />
+      <workItem from="1620008250244" duration="3435000" />
+      <workItem from="1621936971244" duration="9000" />
+    </task>
+    <task id="LOCAL-00001" summary="BE-email : 이메일 인증 설정">
+      <created>1619418930324</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1619418930324</updated>
+    </task>
+    <task id="LOCAL-00002" summary="BE-email : 이메일 인증 config 설정">
+      <created>1619419581060</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1619419581060</updated>
+    </task>
+    <task id="LOCAL-00003" summary="BE-email : 인증 메일 요청 API 구현">
+      <created>1619503414642</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1619503414642</updated>
+    </task>
+    <task id="LOCAL-00004" summary="BE-email : application.properties 수정">
+      <created>1619505897654</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1619505897654</updated>
+    </task>
+    <task id="LOCAL-00005" summary="BE-jwt : application.properties, pom.xml 설정 추가">
+      <created>1619615546411</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1619615546411</updated>
+    </task>
+    <task id="LOCAL-00006" summary="BE-jwt : pull 전 임시 commit">
+      <created>1619669878530</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1619669878530</updated>
+    </task>
+    <task id="LOCAL-00007" summary="BE-jwt : pom.xml plugin 수정">
+      <created>1619685495628</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1619685495628</updated>
+    </task>
+    <task id="LOCAL-00008" summary="BE-jwt : 주입 수정">
+      <created>1619724439281</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1619724439282</updated>
+    </task>
+    <task id="LOCAL-00009" summary="BE-jwt : jwt 구현">
+      <created>1619838500402</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1619838500402</updated>
+    </task>
+    <task id="LOCAL-00010" summary="BE-jwt : jwt 구현">
+      <created>1619840649610</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1619840649610</updated>
+    </task>
+    <task id="LOCAL-00011" summary="BE-jwt : application.properties 수정">
+      <created>1619840686961</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1619840686961</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="BE-jwt" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="BE-email : 이메일 인증 설정" />
+    <MESSAGE value="BE-email : 이메일 인증 config 설정" />
+    <MESSAGE value="BE-email : 인증 메일 요청 API 구현" />
+    <MESSAGE value="BE-email : application.properties 수정" />
+    <MESSAGE value="BE-jwt : application.properties, pom.xml 설정 추가" />
+    <MESSAGE value="BE-jwt : pull 전 임시 commit" />
+    <MESSAGE value="BE-jwt : pom.xml plugin 수정" />
+    <MESSAGE value="BE-jwt : 주입 수정" />
+    <MESSAGE value="BE-jwt : jwt 구현" />
+    <MESSAGE value="BE-jwt : application.properties 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="BE-jwt : application.properties 수정" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="org.springframework.security.core.userdetails.UsernameNotFoundException" package="org.springframework.security.core.userdetails" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

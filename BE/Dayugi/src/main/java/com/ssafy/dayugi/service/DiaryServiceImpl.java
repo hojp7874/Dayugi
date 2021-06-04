@@ -1,10 +1,12 @@
 package com.ssafy.dayugi.service;
 
-import com.ssafy.dayugi.model.entity.Diary;
-import com.ssafy.dayugi.model.entity.User;
+import com.ssafy.dayugi.model.entity.*;
 import com.ssafy.dayugi.repository.DiaryFileRepository;
 import com.ssafy.dayugi.repository.DiaryRepository;
+import com.ssafy.dayugi.repository.EmotionRateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 
@@ -18,7 +20,8 @@ public class DiaryServiceImpl implements DiaryService {
 
     @Autowired
     private DiaryRepository diaryRepository;
-    private DiaryFileRepository diaryFileRepository;
+    @Autowired
+    private EmotionRateRepository emotionRateRepository;
 
     @Override
     public int writeDiary(Diary diary) throws Exception {
@@ -73,12 +76,10 @@ public class DiaryServiceImpl implements DiaryService {
     }
 
     @Override
-    public List<Optional<Diary>> periodDiary(int uid, String startDate, String endDate) throws Exception {
-//        long start = Date.parse(startDate);
-//        long end = Date.parse(endDate);
+    public List<DiaryEmotionInterface> periodDiary(int uid, String startDate, String endDate) throws Exception {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
-        List<Optional<Diary>> diaries = diaryRepository.findByUserAndPeriod(uid, startDate, endDate);
-        return diaries;
+        List<DiaryEmotionInterface> diariesEmotion = diaryRepository.findByUserAndPeriod(uid, startDate, endDate);
+        return diariesEmotion;
     }
 
     //완료
@@ -87,6 +88,7 @@ public class DiaryServiceImpl implements DiaryService {
         Optional<Diary> diary = diaryRepository.findDiaryByDid(did);
 
         if (diary.isPresent()) {
+            emotionRateRepository.deleteEmotionRateByDiary_Did(did);
             diaryRepository.deleteDiaryByDid(did);
             return true;
         }
@@ -98,7 +100,11 @@ public class DiaryServiceImpl implements DiaryService {
     public boolean deleteAllDiary(int uid) throws Exception {
         List<Optional<Diary>> diaries = diaryRepository.findDiariesByUser_Uid(uid);
         if (!diaries.isEmpty()) {
-//            System.out.println(diaries);
+            for (Optional<Diary> diary : diaries) {
+                if (diary.isPresent()) {
+                    emotionRateRepository.deleteEmotionRateByDiary_Did(diary.get().getDid());
+                }
+            }
             diaryRepository.deleteDiariesByUser_Uid(uid);
             return true;
         }

@@ -118,4 +118,13 @@ public class UserServiceImpl implements UserService {
         return false;
     }
 
+    public Optional<User> getUserEmail(int uid) throws Exception{
+        Optional<User> user = userRepository.findUserByUid(uid);
+        if(user.isPresent()){
+            return user;
+        }
+        return Optional.empty();
+
+    }
+
 }
