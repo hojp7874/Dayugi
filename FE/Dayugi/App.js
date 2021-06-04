@@ -20,7 +20,6 @@ class App extends React.Component {
   }
 
   render() {
-    // AsyncStorage.clear();
     if(this.state.isReady){
       return (
         <AppContainer />

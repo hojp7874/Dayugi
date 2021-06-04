@@ -38,11 +38,11 @@ class DiaryCalendarPage extends React.Component{
       this.props.navigation.navigate("Login")
     }
     else{
-      this.getAllDiary();
+      await this.getAllDiary();
     }
   }
 
-  getAllDiary = () => {
+  getAllDiary = async() => {
     fetch(`http://k4a206.p.ssafy.io:8080/dayugi/diary/all?uid=${encodeURIComponent(this.state.uid)}`, {
       method: "GET",
       headers: {
